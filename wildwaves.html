@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Wild Waves Aquatic Park</title>
+</head>
+<body>
+    
+    <h1>Wild Waves Aquatic Park</h1>
+    
+    <button type="button" onclick="buyTicket()">Purchase Ticket</button>
+    
+    <script>
+        const WAVE_POOL_MIN_HEIGHT = 42;
+        const WATERSLIDE_MIN_HEIGHT = 48;
+        const LAZY_RIVER_MIN_HEIGHT = 36;
+        
+        //Prompts user for attraction type, height, then checks if theyre allowed on attraction based on height and selected attraction. 
+        function buyTicket(){
+            const attractionType = prompt('Which attraction do you want to visit: type "wave" for wave pool, "water" for water slide, or "river" for lazy river?');
+            const userHeight = prompt('What is your height in inches?');
+            const withAdult = prompt("Will user be accompanied by an adult?");
+            const isAllowed = checkHeight(attractionType, userHeight, withAdult);
+            console.log("User's selected attraction is " + attractionType);
+            console.log("User's height is " + userHeight + " inches");
+            
+            // If user meets height requirements, will alert allowed, if not will alert not allowed
+            // If user over 42 inches and accompanied by adult  alert all attractions qualified
+            if (isAllowed === true) {
+            alert("This user is allowed on this attraction");
+            }   else {
+                alert("This user is not allowed on this attraction");
+            }
+        }
+            
+        //Checks if user height is tall enough for selected attraction
+        function checkHeight (attraction, height, withAdult) {
+            if ((withAdult === 'yes') && (height > 42)) {
+                return true;
+            } else if ((attraction === 'wave') && (height >= 42)) {
+                return isAllowed = true;
+            } else if ((attraction === 'water') && (height >= 48)) {
+                return isAllowed = true;
+            } else if ((attraction === 'lazy') && (height >= 36)) {
+                return isAllowed = true;
+             } else {
+                return isAllowed = false;
+            }
+        }
+    
+    </script>
+</body>
+</html>
